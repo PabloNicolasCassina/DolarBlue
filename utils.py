@@ -10,7 +10,7 @@ import json
 
 TWILIO_ACCOUNT_SID =os.environ["TWILIO_ACCOUNT_SID"]
 TWILIO_AUTH_TOKEN =os.environ["TWILIO_AUTH_TOKEN"]
-PHONE_NUMBER ="+12545705477"
+PHONE_NUMBER ="+14155238886"
 
 
 def request_api(api_key):
@@ -54,9 +54,10 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df):
 
     message = client.messages \
                     .create(
+                        from_="whatsapp:+14155238886",
                         body="\n Hola!  \n\n\n El valor del dolar al " + df["Fecha"][0] +" a las " + df["Hora"][0]  + " es: \n\n\n Compra: " + str(df["Compra"][0]) + " \n Venta: " + str(df["Venta"][0]) + "\n Valor promedio: " + str(df["Prom"][0]),
-                        from_=PHONE_NUMBER,
-                        to='+543512334798'
+                        
+                        to="whatsapp:+5493512334798"
                     )
 
     return message.sid
